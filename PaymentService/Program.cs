@@ -11,11 +11,11 @@ var factory = new ConnectionFactory()
     Password = "guest"
 };
 
-using var connection = factory.CreateConnection();
-using var channel = connection.CreateModel();
+using var connection = await factory.CreateConnectionAsync();
+using var channel = await connection.CreateChannelAsync();
 
 // Declare queue (must match producer queue)
-channel.QueueDeclare(
+await channel.QueueDeclareAsync(
     queue: "orders-queue",
     durable: true,
     exclusive: false,
@@ -25,9 +25,9 @@ channel.QueueDeclare(
 
 Console.WriteLine("Waiting for orders...");
 
-var consumer = new EventingBasicConsumer(channel);
+var consumer = new AsyncEventingBasicConsumer(channel);
 
-consumer.Received += (model, ea) =>
+consumer.ReceivedAsync += async (model, ea) =>
 {
     var body = ea.Body.ToArray();
     var message = Encoding.UTF8.GetString(body);
@@ -35,10 +35,10 @@ consumer.Received += (model, ea) =>
     Console.WriteLine($"Order received: {message}");
 
     // acknowledge message
-    channel.BasicAck(ea.DeliveryTag, false);
+    await channel.BasicAckAsync(ea.DeliveryTag, false);
 };
 
-channel.BasicConsume(
+await channel.BasicConsumeAsync(
     queue: "orders-queue",
     autoAck: false,
     consumer: consumer
