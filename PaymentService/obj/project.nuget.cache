@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "QrbC+6YpBEA=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Asus\\ProgramforInternet\\RabbitMQMicroservicesLab\\PaymentService\\PaymentService.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Asus\\.nuget\\packages\\rabbitmq.client\\7.2.1\\rabbitmq.client.7.2.1.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\system.threading.ratelimiting\\8.0.0\\system.threading.ratelimiting.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
