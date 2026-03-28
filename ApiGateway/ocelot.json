@@ -2,11 +2,11 @@
   "Routes": [
     {
       "DownstreamPathTemplate": "/api/orders",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5179
+          "Host": "upgraded-space-bassoon-v9w4765p9f66gj-5179.app.github.dev",
+          "Port": 443
         }
       ],
       "UpstreamPathTemplate": "/gateway/orders",
@@ -14,6 +14,6 @@
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:5015"
+    "BaseUrl": "https://upgraded-space-bassoon-v9w4765p9f66gj-5015.app.github.dev"
   }
 }
