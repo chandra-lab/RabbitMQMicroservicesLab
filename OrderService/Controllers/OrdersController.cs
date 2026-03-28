@@ -17,6 +17,17 @@ namespace OrderService.Controllers
             _publisher = new RabbitMQPublisher("localhost", "orders-queue");
         }
 
+        [HttpGet]
+        public IActionResult GetOrders()
+        {
+            // This service currently publishes orders to RabbitMQ and does not persist them.
+            return Ok(new
+            {
+                Message = "OrderService is reachable.",
+                Data = Array.Empty<Order>()
+            });
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateOrder([FromBody] Order order)
         {
