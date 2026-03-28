@@ -10,7 +10,20 @@
         }
       ],
       "UpstreamPathTemplate": "/gateway/orders",
-      "UpstreamHttpMethod": [ "GET", "POST" ]
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "SwaggerKey": "orders"
+    }
+  ],
+  "SwaggerEndPoints": [
+    {
+      "Key": "orders",
+      "Config": [
+        {
+          "Name": "Orders API",
+          "Version": "v1",
+          "Url": "https://upgraded-space-bassoon-v9w4765p9f66gj-5179.app.github.dev/swagger/v1/swagger.json"
+        }
+      ]
     }
   ],
   "GlobalConfiguration": {
